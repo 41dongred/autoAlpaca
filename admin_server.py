@@ -1,9 +1,13 @@
 from flask import Flask, render_template_string
 import autoAlpaca
 
+# 실행 시 콘솔에 표시되는 메시지를 통해 서버가 정상적으로 시작되었는지
+# 확인할 수 있도록 한다.
+
 app = Flask(__name__)
 
 INDEX_HTML = """
+<script>alert('관리자 서버가 실행 중입니다');</script>
 <h1>Admin Page</h1>
 <ul>
     <li><a href='/positions'>Positions</a></li>
@@ -56,4 +60,5 @@ def activities():
     return render_template_string("""{{table|safe}}<p><a href='/'>Back</a></p>""", table=table)
 
 if __name__ == '__main__':
+    print('✓ Admin server running at http://localhost:8000')
     app.run(port=8000, debug=True)
