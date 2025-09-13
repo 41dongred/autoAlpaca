@@ -190,4 +190,5 @@ def trade_stock():
             place_sell_order(symbol, qty)
 
 # 자동매매 시작
-trade_stock()
+if __name__ == "__main__":
+    trade_stock()
